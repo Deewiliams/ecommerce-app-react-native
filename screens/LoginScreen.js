@@ -11,10 +11,12 @@ import {
 import React, { useState } from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigation = useNavigation()
   return (
     <SafeAreaView
       style={{ flex: 1, backgroundColor: "white", alignItems: "center" }}
@@ -94,7 +96,7 @@ const LoginScreen = () => {
             <Text style={styles.loginButton}>Login</Text>
           </Pressable>
 
-          <Pressable style={{marginTop: 15}}>
+          <Pressable onPress={() =>navigation.navigate("Register")} style={{marginTop: 15}}>
             <Text style={{textAlign: "center",color: "gray", fontSize: 16}}>
                 Don't have an account? Sign Up
             </Text>
