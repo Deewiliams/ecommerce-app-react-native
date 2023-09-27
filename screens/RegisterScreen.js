@@ -7,18 +7,43 @@ import {
   KeyboardAvoidingView,
   TextInput,
   Pressable,
+  Alert,
 } from "react-native";
 import React, { useState } from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
 const RegisterScreen = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
+
+  const handleRegister = () => {
+    const user = {
+      name: name,
+      email: email,
+      password: password,
+    };
+
+    //sending a post request to the backend API
+    axios
+      .post("http://localhost:8000/register", user)
+      .then((res) => {
+        console.log("user info", res);
+        Alert.alert("Registration successfully");
+        setName("");
+        setPassword("");
+        setEmail("");
+      })
+      .catch((error) => {
+        Alert.alert("an error occured", error);
+        console.log("registration fail", error);
+      });
+  };
   return (
     <SafeAreaView
       style={{ flex: 1, backgroundColor: "white", alignItems: "center" }}
@@ -104,13 +129,13 @@ const RegisterScreen = () => {
         >
           <Text>Keep me logged in</Text>
           <Text style={{ color: "#007FFF", fontWeight: "500" }}>
-            Fogot pasword
+            Fogot password
           </Text>
         </View>
 
         <View style={{ marginTop: 80 }}>
-          <Pressable style={styles.button}>
-            <Text style={styles.loginButton}>Sign Up</Text>
+          <Pressable onPress={handleRegister} style={styles.button}>
+            <Text style={styles.loginButton}>Register</Text>
           </Pressable>
 
           <Pressable

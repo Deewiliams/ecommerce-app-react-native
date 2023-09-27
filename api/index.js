@@ -33,7 +33,7 @@ app.listen(port, () => {
   console.log("Serve is running on port 8000");
 });
 
-const user = require("./models/user");
+const User = require("./models/user");
 const Order = require("./models/order");
 
 //function to send verifatiction email to the user
