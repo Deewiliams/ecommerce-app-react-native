@@ -89,9 +89,15 @@ const LoginScreen = () => {
           </Text>
         </View>
 
-        <View style={{ marginTop: 50 }}>
+        <View style={{ marginTop: 80 }}>
           <Pressable style={styles.button}>
             <Text style={styles.loginButton}>Login</Text>
+          </Pressable>
+
+          <Pressable style={{marginTop: 15}}>
+            <Text style={{textAlign: "center",color: "gray", fontSize: 16}}>
+                Don't have an account? Sign Up
+            </Text>
           </Pressable>
         </View>
       </KeyboardAvoidingView>
