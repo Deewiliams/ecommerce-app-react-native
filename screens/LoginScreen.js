@@ -7,11 +7,13 @@ import {
   KeyboardAvoidingView,
   TextInput,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 
 const LoginScreen = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <SafeAreaView
       style={{ flex: 1, backgroundColor: "white", alignItems: "center" }}
@@ -46,6 +48,8 @@ const LoginScreen = () => {
               color="gray"
             />
             <TextInput
+              value={email}
+              onChange={(text) => setEmail(text)}
               style={styles.emailText}
               placeholder="Enter your email"
             />
@@ -61,10 +65,27 @@ const LoginScreen = () => {
               color="gray"
             />
             <TextInput
+              value={password}
+              onChange={(text) => setPassword(text)}
+              secureTextEntry={true}
               style={styles.emailText}
               placeholder="Enter your password"
             />
           </View>
+        </View>
+
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginTop: 12,
+          }}
+        >
+          <Text>Keep me logged in</Text>
+          <Text style={{ color: "#007FFF", fontWeight: "500" }}>
+            Fogot pasword
+          </Text>
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -87,5 +108,6 @@ const styles = StyleSheet.create({
     color: "gray",
     marginVertical: 10,
     width: 300,
+    fontSize: 18,
   },
 });
