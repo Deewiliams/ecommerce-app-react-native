@@ -30,3 +30,7 @@ mongoose.connect("mongodb+srv://desireirankundawilliams:Desireirankunda2995$@clu
 app.listen(port,() => {
     console.log("Serve is running on port 8000"); 
 })
+
+
+
+//endpoint to register in the app 
