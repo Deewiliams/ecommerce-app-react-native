@@ -6,6 +6,7 @@ import {
   Image,
   KeyboardAvoidingView,
   TextInput,
+  Pressable,
 } from "react-native";
 import React, { useState } from "react";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -87,6 +88,12 @@ const LoginScreen = () => {
             Fogot pasword
           </Text>
         </View>
+
+        <View style={{ marginTop: 50 }}>
+          <Pressable style={styles.button}>
+            <Text style={styles.loginButton}>Login</Text>
+          </Pressable>
+        </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -110,4 +117,18 @@ const styles = StyleSheet.create({
     width: 300,
     fontSize: 18,
   },
+  button: {
+    width: 200,
+    backgroundColor: "#FEBE10",
+    borderRadius: 6,
+    marginLeft: "auto",
+    marginRight: "auto",
+    padding: 15,
+  },
+  loginButton: {
+    textAlign: "center",
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold"
+  }
 });
